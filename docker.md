@@ -4,6 +4,8 @@ Creates a virtual environment of your OS to allow deployment of software seamles
 
 It tends to be faster than running a entire virtual machine because it automizes using a single linux instance; however, would be slower if you can build to your OS natively.
 
+Made to package and run an application in a loosely isolated environment called a **container**.
+
 ## Breakdown
 
 Consists of 3 components:
@@ -15,6 +17,7 @@ Consists of 3 components:
 ## Installation
 
 - Desktop [Installation](https://docs.docker.com/get-started/get-docker/)
+- [Getting Started](https://docs.docker.com/get-started/workshop/02_our_app/)
 
 ## Tools
 
@@ -24,6 +27,47 @@ Consists of 3 components:
 
 
 ## Deployment
+
+First, you need to create a **Dockerfile** which defines build instructions. It defines how to build a *Docker image*, being similar to *requirements.txt* in python or *cmake* in C/C++. 
+```
+$ touch Dockerfile
+```
+
+- This file is unique to each container framework/library (cannot generalize file content).
+- After generating, add content through researching
+
+Build the project by running the following command, swapping out DOCKER_USERNAME with your username:
+
+```
+$ docker build -t DOCKER_USERNAME/getting-started-todo-app .
+```
+
+To verify the image exists locally, you can use the docker image ls command:
+```
+$ docker image ls
+```
+
+The following command runs an container, attaches interactively to your local command-line session:
+
+```
+$ docker run -d -p 127.0.0.1:3000:3000 docker/getting-started-todo-app
+```
+- The -d flag (short for --detach) runs the container in the background.
+    - Don't add, I like messages in terminal
+
+After a few seconds, open your web browser to http://localhost:3000. You should see your app.
+
+Run the docker ps command in a terminal to list your containers.
+```
+$ docker ps
+```
+
+To push the image, use the docker push command. Be sure to replace DOCKER_USERNAME with your username:
+```
+$ docker push DOCKER_USERNAME/getting-started-todo-app
+```
+
+Depending on your upload speeds, this may take a moment to push.
 
 
 
