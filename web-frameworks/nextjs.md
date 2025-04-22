@@ -29,6 +29,8 @@ Runtime system will have some responsibility:
 
 ## Installation
 
+https://nextjs.org/docs/app/getting-started/installation
+
 ### Via MacOS
 
 First, need to install node package manager (npm)
