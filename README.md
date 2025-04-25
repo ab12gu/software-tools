@@ -1,3 +1,3 @@
 # Overview
 
-Description of softare tools I use and might use
+Description of software tools I use and might use

@@ -25,6 +25,27 @@ Consists of 3 components:
 - **Docker Swarm**
 - **Docker Volume**
 
+## Local Development
+
+
+**Docker Compose**
+
+With a single command, you create and start all the services from your configuration YAML file
+
+To build and run image:
+```
+$ docker-compose up
+```
+
+To rebuild:
+```
+$ docker-compose up --build
+``` 
+or for a clean slate:
+```
+$ docker-compose down --volumes --remove-orphans
+$ docker-compose up --build
+```
 
 ## Deployment
 
@@ -54,6 +75,9 @@ $ docker run -d -p 127.0.0.1:3000:3000 docker/getting-started-todo-app
 ```
 - The -d flag (short for --detach) runs the container in the background.
     - Don't add, I like messages in terminal
+- `3000:3000` is the `<host_port>:<container_port>`
+    - “Hey Docker, if someone hits localhost:3000 on my machine, forward that to port 3000 inside the container.”
+    - So they can be different
 
 After a few seconds, open your web browser to http://localhost:3000. You should see your app.
 
